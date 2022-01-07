@@ -23,45 +23,56 @@ process.stdin.on("data", data =>{
     if( answers.length < questions.length){
        ask(answers.length)
 
-    }else{
-       // console.log(answers)
-        process.exit();
+    }else{       
 
+        saindo();         
+            
     }
   
-
-})
-
-const timeOut= 2000;
-
-const saindo= ()=>{
-    
-     for (cont=0; cont < answers.length; cont ++){
-         
-        
-       ( function (x) {
-            
-                console.log(` \n  ${questions[cont]}: \n ${answers[cont]} \n`)          
-           
-        });
-        
-        setInterval( x, timeOut)     
-       
-
-    }
    
+} )
+
+
+
+
+
+function saindo (){
+    console.log( ` --------------------------------------------------------\n Chegamos ao fim de mais um dia meu amigo, Parabéns! \n\n
+    ----------------------------------------------`);
+    console.log("\n seguem suas repostas...\n ")
+    const sair= answers.length
+   
+
+    for (cont=0; cont < answers.length; cont++){  
+        (function (cont){
+            setTimeout(function(){
+                console.log(` \n  ${questions[cont]}: \n ${answers[cont]} \n`);
+    
+            }, cont *1000);
+    
+        }(cont));       
+    
+    }
+
+      
+
+(function (sair){
+    
+    setTimeout(function(){
+        process.exit();
+
+    }, sair *1000);
+
+}(sair)); 
+    
+    
 }
 
 
 
-process.on("exit", () => {
-    console.log( ` --------------------------------------------------------\n Chegamos ao fim de mais um dia meu amigo, Parabéns! \n\n
-    ----------------------------------------------`);
-    console.log("\n seguem suas repostas...\n ")
 
-    saindo();
-   
-  //setTimeout(saindo, timeOut);
+
+process.on("exit", () => { 
 
     console.log(" \n\n --- Até amanhã! Bom descanso. ---- \n\n")
 

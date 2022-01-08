@@ -32,10 +32,6 @@ process.stdin.on("data", data =>{
    
 } )
 
-
-
-
-
 function saindo (){
     console.log( ` --------------------------------------------------------\n Chegamos ao fim de mais um dia meu amigo, Parabéns! \n\n
     ----------------------------------------------`);
@@ -52,25 +48,19 @@ function saindo (){
     
         }(cont));       
     
-    }
+    }      
 
-      
-
-(function (sair){
+   (function (sair){
     
-    setTimeout(function(){
-        process.exit();
+        setTimeout(function(){
+            process.exit();
 
-    }, sair *1000);
+        }, sair *1000);
 
-}(sair)); 
+    }(sair)); 
     
     
 }
-
-
-
-
 
 process.on("exit", () => { 
 
